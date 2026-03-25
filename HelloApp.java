@@ -1,14 +1,19 @@
 public class HelloApp {
     public static void main(String[] args) {
-        // Check if command-line arguments are provided
+        StringBuilder greeting = new StringBuilder("Hello, ");
+
         if (args.length == 0) {
-            // No arguments, display default greeting
-            System.out.println("Hello, World!");
+            greeting.append("World!");
         } else {
-            // Arguments exist, join all names with commas and spaces
-            String names = String.join(", ", args);
-            // Display personalized greeting with all names
-            System.out.println("Hello, " + names + "!");
+            for (String name : args) {
+                greeting.append(name).append(", ");
+            }
+            if (greeting.length() > 0) {
+                greeting.setLength(greeting.length() - 2); 
+            }
+            greeting.append("!");
         }
+
+        System.out.println(greeting.toString());
     }
 }
