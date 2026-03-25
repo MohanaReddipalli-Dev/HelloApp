@@ -1,19 +1,12 @@
 public class HelloApp {
     public static void main(String[] args) {
-        StringBuilder greeting = new StringBuilder("Hello, ");
-
         if (args.length == 0) {
-            greeting.append("World!");
+            
+            System.out.println("Hello, World!");
         } else {
-            for (String name : args) {
-                greeting.append(name).append(", ");
-            }
-            if (greeting.length() > 0) {
-                greeting.setLength(greeting.length() - 2); 
-            }
-            greeting.append("!");
+            
+            String greeting = "Hello, " + String.join(", ", args) + "!";
+            System.out.println(greeting);
         }
-
-        System.out.println(greeting.toString());
     }
 }
